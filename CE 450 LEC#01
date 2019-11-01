@@ -1,0 +1,285 @@
+
+'''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
+
+ YIJUN LIU
+
+ CE540 LEC#01    Week 3
+
+ Python Problem:
+
+ 1. Build up a function to implement the following operation    
+
+'''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
+
+
+def  if_function(condition, true_result, false_result): 
+    if condition:
+        return true_result
+    else:
+        return false_result
+
+print(if_function(5==20,1,0))
+
+
+
+
+
+
+
+'''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
+
+ YIJUN LIU
+
+ CE540 LEC#01    Week 3
+
+ Python Problem:
+
+ 2. Create a function to add odd numbers less equal than numeric input parameter together as follows           
+ 						   """ 
+ 							>>> sum_odd(6)         #1+3+5 
+ 							9 
+ 							>>>sum_odd(7) 		   #1+3+5+7 
+ 							16           
+ 						   """    
+
+'''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
+def sum_odd(num):
+    numbers = range(0,num+1)
+    total=0
+    for n in numbers:
+        if n%2==1:
+            total+=n
+    return total
+
+print(sum_odd(6))
+
+
+
+
+
+
+'''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
+
+ YIJUN LIU
+
+ CE540 LEC#01    Week 3
+
+ Python Problem:
+
+ 3. Define a function for 4 inputs a, b, c, d,  and return sum of square of two smallest number from a, b, c and d    
+
+'''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
+def foo(a,b,c,d):
+    fo=[a,b,c,d]
+    smlest=min(fo)
+   
+    fo.remove(smlest)
+    sml=min(fo)
+  
+    return (smlest**2)+(sml**2)
+    
+print(foo(1,2,3,4))
+
+
+
+
+
+
+'''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
+
+ YIJUN LIU
+
+ CE540 LEC#01    Week 3
+
+ Python Problem:
+
+ 4. Write a function named “df” that takes three integers x, y, and z. It returns whether subtracting one of these numbers from another gives the third.   
+
+'''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
+
+def df(x,y,z):
+    
+    var=[abs(x),abs(y),abs(z)]
+    smlest=min(var)
+    var.remove(smlest)
+    sml = min(var)
+    var.remove(sml)
+    if smlest+sml==var[0]:
+        return True
+    else:
+        return False
+    
+print(df(9,-1,-5))
+
+
+
+
+
+
+'''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
+
+ YIJUN LIU
+
+ CE540 LEC#01    Week 3
+
+ Python Problem:
+
+ 5. Create a function that takes an integer m greater than 1 and returns the largest integer smaller than m that evenly divides m.    
+
+'''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
+
+def lrgst_factor(m):
+    i=m-1
+    while i>0:
+        if m%i==0 :
+            return i
+        i-=1    
+
+
+
+
+
+
+
+
+'''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
+
+ YIJUN LIU
+
+ CE540 LEC#01    Week 3
+
+ Python Problem:
+
+ 6. Define a function which takes in a number n and determines whether the number is a perfect number. A perfect number is equal to the sum of its factors. For instance, 6 is a perfect number since 6 = 1 + 2 + 3.     
+
+'''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
+
+def pfct_num(m):
+    sum=0
+    i=m-1
+    while i>0:
+        if m%i==0 :
+            sum+=i
+        i-=1  
+    return sum==m
+
+
+
+
+
+
+'''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
+
+ YIJUN LIU
+
+ CE540 LEC#01    Week 3
+
+ Python Problem:
+
+ 7. Implement a function to check if the number of bits from two positive input parameters is the same or not.     
+
+'''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
+ 
+ bits or digits?
+
+ def same_ord(a, b):
+    return len(str(b1))==len(str(b2))
+
+
+
+
+
+'''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
+
+ YIJUN LIU
+
+ CE540 LEC#01    Week 3
+
+ Python Problem:
+
+ 8. Write a function that takes in a number and determines if the digits contain two adjacent 5s.      
+
+'''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
+
+
+def double_5(n):
+    n_list = [int(x) for x in str(n)]
+    isFive=False
+    for i in range(0,len(n_list)):
+        if n_list[i]==5 :
+            if isFive:
+                return True
+            else:
+                isFive=True
+        else:
+            isFive=False
+    return False
+
+
+
+
+
+
+'''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
+
+ YIJUN LIU
+
+ CE540 LEC#01    Week 3
+
+ Python Problem:
+
+ 9. Design a function that returns the number of unique digits in a positive integer.      
+
+'''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
+
+def uniq_digits(x):
+    n_list = [int(n) for n in str(x)]
+    uniq=[]
+    for i in range(0,len(n_list)):
+        if n_list[i] not in uniq:
+            uniq.append(n_list[i])
+    return len(uniq)    
+
+
+
+
+
+
+
+
+'''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
+
+ YIJUN LIU
+
+ CE540 LEC#01    Week 3
+
+ Python Problem:
+
+ 10. Write a def function “amc” with a positive integer “n” input parameter. It returns the smallest amicable number greater than “n”. Two different numbers are both amicable if the sum of the proper divisors of each is equal to the other. Any number that's part of such a pair is an amicable number. 
+'''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
+
+def sumOfFactors(m):
+    sum=0
+    i=m-1
+    while i>0:
+        if m%i==0 :
+            sum+=i
+        i-=1  
+    return sum
+   
+def amc(n):
+    i=n+1
+    while True:
+        s=sumOfFactors(i)
+        if s!=i :
+            if sumOfFactors(s)==i:
+                return i
+        i+=1    
+   
+print(amc(284))
+
+
+
+
+
+
